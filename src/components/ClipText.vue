@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { type ClipText } from '../model/clip'
-const props = defineProps<{
+defineProps<{
     clip: ClipText
 }>()
 </script>
 
 <template>
-    <p>{{ props.clip.text }}</p>
+    <p>{{ clip.text }}</p>
 </template>
