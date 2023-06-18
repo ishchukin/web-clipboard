@@ -19,6 +19,6 @@ const components = {
     <article>
         <component
             :is="components[props.clip.type]"
-            :clip="props.clip"/>
+            :clip="props.clip as any"/>
     </article>
 </template>
