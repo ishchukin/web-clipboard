@@ -1,19 +1,19 @@
 export const enum ClipType {
-    UrlImage,
-    Text
+  UrlImage,
+  Text
 }
 
 export interface ClipBase<T extends ClipType> {
-    id: string,
-    type: T
+  id: string
+  type: T
 }
 
 export interface ClipUrlImage extends ClipBase<ClipType.UrlImage> {
-    url: string
+  url: string
 }
 
 export interface ClipText extends ClipBase<ClipType.Text> {
-    text: string
+  text: string
 }
 
 export type Clip = ClipUrlImage | ClipText

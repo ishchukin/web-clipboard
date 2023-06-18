@@ -4,6 +4,6 @@ import { Stores } from '../stores'
 import { type Clip } from '../model/clip'
 
 export const useClipStore = defineStore(Stores.ClipStore, () => {
-  const clips = ref<Clip[]>([]);
+  const clips = ref<Clip[]>([])
   return { clips }
 })

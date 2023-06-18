@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue';
-import { useClipStore } from '../stores/clips';
+import { ref, reactive, computed, watch } from 'vue'
+import { useClipStore } from '../stores/clips'
 import ClipCard from '../components/ClipCard.vue'
 import { ClipType } from '../model/clip'
-const clipStore = useClipStore();
+import logo from '@/assets/logo.svg'
+const clipStore = useClipStore()
 const pushClip = () => {
-  clipStore.clips.push({
-    id: crypto.randomUUID(),
-    type: ClipType.Text,
-    text: 'foo!'
-  })
+  if (Math.random() > 0.5) {
+    clipStore.clips.push({
+      id: crypto.randomUUID(),
+      type: ClipType.Text,
+      text: 'foo!'
+    })
+  } else {
+    clipStore.clips.push({
+      id: crypto.randomUUID(),
+      type: ClipType.UrlImage,
+      url: logo
+    })
+  }
 }
 </script>
 <template>
@@ -18,10 +27,9 @@ const pushClip = () => {
     <button @click="pushClip">Push</button>
     <ul>
       <li v-for="clip in clipStore.clips" :key="clip.id">
-        <ClipCard :clip="clip"/>
+        <ClipCard :clip="clip" />
       </li>
     </ul>
-    <ul>
-    </ul>
+    <ul></ul>
   </main>
 </template>
