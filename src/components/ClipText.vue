@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { type ClipText } from '../model/clip'
-defineProps<{
-  clip: ClipText
+import { onBeforeMount, ref } from 'vue'
+import { type ClipView } from '../model/clip'
+
+const props = defineProps<{
+  view: ClipView
 }>()
+
+const text = ref('loading')
+
+onBeforeMount(async () => {
+  text.value = await props.view.blob.text()
+})
 </script>
 
 <template>
-  <p>{{ clip.text }}</p>
+  <pre>{{ text }}</pre>
 </template>

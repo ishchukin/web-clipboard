@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { Stores } from '../stores'
 import { type Clip } from '../model/clip'

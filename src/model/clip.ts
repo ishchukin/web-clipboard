@@ -1,19 +1,7 @@
-export const enum ClipType {
-  UrlImage,
-  Text
+export type ClipView = {
+  blob: Blob
 }
 
-export interface ClipBase<T extends ClipType> {
-  id: string
-  type: T
+export type Clip = {
+  views: Map<string, ClipView>
 }
-
-export interface ClipUrlImage extends ClipBase<ClipType.UrlImage> {
-  url: string
-}
-
-export interface ClipText extends ClipBase<ClipType.Text> {
-  text: string
-}
-
-export type Clip = ClipUrlImage | ClipText
