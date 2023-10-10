@@ -14,5 +14,11 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <pre>{{ text }}</pre>
+  <pre class="wrapped-pre">{{ text }}</pre>
 </template>
+
+<style lang="scss" scoped>
+.wrapped-pre {
+  white-space: pre-wrap;
+}
+</style>

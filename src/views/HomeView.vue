@@ -8,10 +8,8 @@ import { type ClipView } from '../model/clip'
 const clipStore = useClipStore()
 
 const onPaste = async (a: Event) => {
-  console.log(a)
   const pasted = await navigator.clipboard.read()
   for (const entry of pasted) {
-    console.log(entry)
     const views = new Map<string, ClipView>()
     for (const entryType of entry.types) {
       const view = {
@@ -41,7 +39,7 @@ onUnmounted(() => {
       width="fit-content"
       max-width="80vw"
       max-height="80vw"
-      class="ma-2 pa-2"
+      class="ma-2 pa-0"
       v-for="(clip, index) in clipStore.clips"
       :clip="clip"
       :key="index"
