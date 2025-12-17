@@ -3,5 +3,7 @@ export type ClipView = {
 }
 
 export type Clip = {
+  id: string
+  timestamp: number
   views: Map<string, ClipView>
 }
